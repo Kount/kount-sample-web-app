@@ -194,7 +194,6 @@ h4 {
 .checkout {
   min-height: 500px;
   height: auto;
-  border-right: 1px solid #646464;
 }
 
 .checkout .col-md-8 {
@@ -387,4 +386,50 @@ h4 {
   float: right;
   font-family: "Work Sans";
   font-weight: 700;
+}
+
+.inputExpand {
+  display: none;
+  visibility: hidden;
+}
+
+.labelExpand {
+  display: block;
+  padding: 0.5em;
+  text-align: center;
+  border-bottom: 1px solid #CCC;
+  color: #2f2f2d;
+  font-family: "Work Sans";
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.labelExpand:hover {
+  color: #898989;
+}
+
+.labelExpand::before {
+  font-family: "Work Sans";
+  font-weight: 700;
+  font-size: 15px;
+  vertical-align: text-top;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  background: radial-gradient(ellipse at center, #CCC 50%, transparent 50%);
+}
+
+#expand {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s;
+  color: #FFF;
+}
+
+#toggle:checked ~ #expand {
+  height: auto;
+}
+#toggle:checked ~ label::before {
 }

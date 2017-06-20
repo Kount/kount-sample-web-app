@@ -178,7 +178,7 @@ $price = isset($price) ? $price : 995;
       <br/>
     </div>
   </div>
-  <div class="col-md-6 explanationCol">
+  <div class="col-md-6 explanationCol" style="border-left: 1px solid #646464;">
     <h4 class="explanation"> Explanation </h4>
     <span class="explSpan">Here are the RIS request parameters related to user information. Those include user details such as customer name, age, address, shipping address, specific geo-details. The request can also include important information gathered by the Kount Data Collector tool based on the customer browser and internet session.</span>
     <form class="pricingForm">

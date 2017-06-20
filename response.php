@@ -30,7 +30,10 @@ $quantity = $_POST['item_quantity'] ? $_POST['item_quantity'] : 1;
 $price = $_POST['price'] ? $_POST['price'] : 995;
 $amount = $_POST['amount'] ? $_POST['amount'] : 5;
 $total = $amount * 40;
-$risKeys = array('AUTO', 'VERS', 'MODE', 'MERC', 'SCOR', 'GEOX', 'ERRO', 'ERRO_COUNT', 'RULES_TRIGGERED', 'RULE_DESCRIPTION_0', 'RULE_DESCRIPTION_1');
+$risKeys = array(
+  'AUTO', 'VERS', 'MODE', 'MERC', 'SCOR', 'GEOX', 'ERRO', 'ERRO_COUNT', 'RULES_TRIGGERED', 'RULE_DESCRIPTION_0', 'RULE_DESCRIPTION_1',
+  'LOCALTIME', 'REGION', 'UAS', 'BROWSER', 'OS', 'IP_PAD', 'IP_COUNTRY', 'IP_REGION', 'IP_ORG'
+);
 
 $approveMessage = "Thank you for your order.  Please check your email for order confirmation and shipping information.";
 $reviewMessage = "We are processing your order now!  We will send a confirmation to the email address you provided.";
@@ -94,7 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
   $status = $response->getErrorCode();
   $score = $response->getScore();
 
-  print_r($response);
 }
 ?>
 <style>
@@ -153,22 +155,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
     </div>
   </div>
 
-  <div class="col-md-6 explanationCol">
+  <div class="col-md-6 explanationCol" style="border-left: 1px solid #646464;">
     <h4>Fields Received from RIS</h4>
     <span class="explSpan">Here's a list of some of the most used fields from the Kount RIS Response. Those include information of the request status, merchant credentials, and merchant-defined rules that were triggered by the request parameter values.</span>
-    <form class="responsePricingForm" method="POST">
-      <table>
-        <?php foreach ($response->getResponseArray() as $key => $res) {
-          if ((array_search($key, $risKeys)) !== false) {
-            echo '<tr>';
-            echo '<td><label class="formLabel" for="">' . $key . '</label></td>';
-            echo "<td><input class='form-control' type='text' name='name' value='$res' readonly> </input></td>";
-            echo '</tr>';
-          }
-        }
-        ?>
-      </table>
-    </form>
+    <input class="inputExpand" id="toggle" type="checkbox">
+    <label class="labelExpand" for="toggle">View list of RIS response fields</label>
+    <div id="expand">
+      <section>
+        <form class="responsePricingForm" method="POST">
+          <table>
+            <?php foreach ($response->getResponseArray() as $key => $res) {
+              if ((array_search($key, $risKeys)) !== false) {
+                echo '<tr>';
+                echo '<td><label class="formLabel" for="">' . $key . '</label></td>';
+                echo "<td><input class='form-control' type='text' name='name' value='$res' readonly> </input></td>";
+                echo '</tr>';
+              }
+            }
+            ?>
+          </table>
+        </form>
+      </section>
+    </div>
     <h4 class="other" style="margin-top: 25px;"> Other Information </h4>
     <span class="infoSpan">As you can notice, the <tt>AUTO</tt> value is changing between the different requests, created by the demo. A value of <tt>A</tt> means that the customer purchase can be automatically <tt>Approved</tt>, because the Kount RIS algorithms determined that it's most possible not a fraud. <tt>AUTO = R</tt> would mean that the customer purchase should undergo a <tt>Review</tt> by the merchant because mismatches were found or merchant-defined rules were triggered. A value of <tt>AUTO = D</tt> means that this customer purchase is most likely a fraud and it should be automatically <tt>Decline</tt>d but the merchant needs to log it for further investigation if the customer performs any consequent actions for that purchase.</span>
   </div>
