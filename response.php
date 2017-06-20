@@ -78,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
   $request->setMack('Y');
   $request->setMode('Q');
   $request->setPaymentMasked('0007380568572514');
-  $request->setUserAgent('Mozilla/5.0(Macintosh; Intel Mac OSX 10_9_5)AppleWebKit/537.36(KHTML, like Gecko)Chrome/37.0.2062.124Safari/537.36');
   $request->setTotal($total);
   $request->setWebsite('DEFAULT');
   $request->setIpAddress(IPAD);

@@ -88,8 +88,6 @@ $merchantId = $ini["MERCHANT_ID"];
           <h4 class="other"> Other Information </h4>
 
           <span class="infoSpan">The above parameters are usually set in a group representing the whole customer cart. The values are then merged into single strings for each parameter type to keep the request shorter in length. Kount is internally parsing those values to provide the ability to operate over them.</span>
-
-
         </div>
       </div>
       <br/><br/>
