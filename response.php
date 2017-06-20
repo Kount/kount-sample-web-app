@@ -93,6 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
   $response = $request->getResponse();
   $status = $response->getErrorCode();
   $score = $response->getScore();
+
+  print_r($response);
 }
 ?>
 <style>
@@ -170,6 +172,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
     <h4 class="other" style="margin-top: 25px;"> Other Information </h4>
     <span class="infoSpan">As you can notice, the <tt>AUTO</tt> value is changing between the different requests, created by the demo. A value of <tt>A</tt> means that the customer purchase can be automatically <tt>Approved</tt>, because the Kount RIS algorithms determined that it's most possible not a fraud. <tt>AUTO = R</tt> would mean that the customer purchase should undergo a <tt>Review</tt> by the merchant because mismatches were found or merchant-defined rules were triggered. A value of <tt>AUTO = D</tt> means that this customer purchase is most likely a fraud and it should be automatically <tt>Decline</tt>d but the merchant needs to log it for further investigation if the customer performs any consequent actions for that purchase.</span>
   </div>
+
+  <iframe id="iFrame" width=1 height=1 frameborder=0 scrolling=no src="./logoHtm.php?m=<?=$merchantId?>&s=<?=$session?>">
+    <img width=10 height=10 src="./logoGif.php?m=<?=$merchantId?>&s=<?=$session?>">
+  </iframe>
 </div>
 <script>
   var btn = document.getElementById("back");
