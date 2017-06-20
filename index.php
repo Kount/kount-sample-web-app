@@ -9,6 +9,10 @@ if (!$session) {
 }
 
 include('header.php');
+
+$ini = parse_ini_file('config.ini');
+
+$merchantId = $ini["MERCHANT_ID"];
 ?>
   <style>
     tr {
@@ -89,6 +93,10 @@ include('header.php');
         </div>
       </div>
       <br/><br/>
+
+    <iframe id="iFrame" width=1 height=1 frameborder=0 scrolling=no src="./logoHtm.php?m=<?=$merchantId?>&s=<?=$session?>">
+      <img width=10 height=10 src="./logoGif.php?m=<?=$merchantId?>&s=<?=$session?>">
+    </iframe>
     </div>
 <?php
 include('footer.php');
