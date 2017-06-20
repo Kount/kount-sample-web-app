@@ -1,0 +1,390 @@
+
+body {
+  background-color: #E7E3E0;
+  font-family: "Work Sans", "Work Sans Bold", "Work Sans Regular";
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  min-height: 540px;
+  margin-bottom: 50px;
+}
+.cart {
+}
+
+.productName {
+  float: right;
+  font-family: "Work Sans", "Work Sans Bold", "Work Sans Regular";
+  font-weight: 700;
+  font-size: 28px;
+  top: 25px;
+}
+
+.productPrice {
+  float: right;
+  font-family: "Work Sans", "Work Sans Bold", "Work Sans Regular";
+  font-weight: 700;
+  font-size: 28px;
+  top: 25px;
+}
+
+.productDesc {
+  font-family: "Work Sans", "Work Sans Bold", "Work Sans Regular";
+  font-weight: 700;
+  font-size: 16px;
+  top: 115px;
+  word-wrap: break-word;
+  float: right;
+  width: auto;
+}
+
+.photo-gallery {
+  margin-right: 28px;
+  float: right;
+  width: 228px;
+  height: 300px;
+}
+
+.photo-gallery img {
+  border: 1px solid #969491;
+}
+
+.btn-primary {
+  height: 43px;
+  width: 174px;
+  font-size: 16px;
+}
+
+.radio {
+  margin-bottom: 20px;
+}
+
+table.risResponse {
+  margin: 0 auto;
+  width: 70%;
+  font-family: Arial;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+  border-bottom: 2px solid lightgrey;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+  0px 10px 20px rgba(0,0,0,0.05),
+  0px 20px 20px rgba(0,0,0,0.05),
+  0px 30px 20px rgba(0,0,0,0.05);
+}
+
+table.risResponse tr:hover {
+  background: #efefef;
+}
+
+table.risResponse th  {
+  background: lightgrey;
+  padding: 12px 35px;
+  font-family: sans-serif;
+}
+
+table.risResponse th, table.risResponse td {
+  border: 1px solid #eee;
+  padding: 12px 35px;
+  border-collapse: collapse;
+  font-family: sans-serif;
+}
+
+.explSpan {
+  margin-top: 20px;
+}
+
+.pricingForm {
+  height: 210px;
+}
+
+label.formLabel {
+  height: 15px;
+  width: 130px;
+  font-style: oblique;
+  font-size: 14px;
+  color: #666666;
+  font-weight: 400 !important;
+  padding-bottom: 20px;
+}
+
+form.pricingForm input.form-control {
+  min-width: 250px;
+  height: 25px;
+  background-color: #CCCCCC !important;
+  font-family: "Work Sans";
+  font-weight: 400;
+  text-decoration: none;
+  text-align: right;
+  color: #666666;
+}
+
+.responsePricingForm {
+  height: auto;
+  margin-top: 20px;
+}
+
+.responsePricingForm input.form-control {
+  min-width: 250px;
+  height: 25px;
+  background-color: #CCCCCC !important;
+  font-family: "Work Sans";
+  font-weight: 400;
+  text-decoration: none;
+  text-align: right;
+  color: #666666;
+}
+
+.responsePricingForm label.formLabel {
+  height: 15px;
+  width: 160px;
+  font-style: oblique;
+  font-size: 14px;
+  color: #666666;
+  font-weight: 400 !important;
+  padding-bottom: 20px;
+}
+
+.checkoutBtn {
+  position: absolute;
+  top: 400px;
+  left: -230px;
+}
+
+.checkoutBtn .btn {
+  background-color: #0096AA;
+}
+
+.checkoutBtn .btn:hover {
+  background-color: rgba(0, 203, 232, 1);
+}
+
+h4 {
+  font-weight: bold;
+}
+
+.product {
+  min-height: 500px;
+  height: auto;
+  border-right: 1px solid #646464;
+}
+
+.product-9 {
+  min-height: 500px;
+  height: auto;
+  border-right: 1px solid #646464;
+}
+
+.col-md-6.explanation {
+  min-height: 500px;
+  height: auto;
+  top: 45px;
+}
+
+.checkoutForm input.form-control, .checkoutForm select.form-control {
+  max-width: 180px;
+  float: right;
+  width: 88%;
+}
+
+.checkoutForm td {
+  font-size: 14px;
+}
+
+.checkout {
+  min-height: 500px;
+  height: auto;
+  border-right: 1px solid #646464;
+}
+
+.checkout .col-md-8 {
+  border-right: 1px solid #646464;
+  min-height: 500px;
+}
+
+.explanationCol {
+  min-height: 500px;
+  height: auto;
+}
+
+.shipping {
+  background-color: #0096AA;
+}
+
+.shipping:hover {
+  background-color: rgba(0, 203, 232, 1);
+}
+
+.left {
+  float: left;
+  margin-left: 10px;
+  width: 45%;
+}
+
+.leftInfo {
+  height: 30px;
+  width: 100%;
+}
+
+.left span.productInfo {
+  float: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.left button {
+  float:left;
+  font-weight: 700;
+  max-width: 130px;
+}
+
+.right {
+  float: right;
+  margin-right: 17px;
+  width: 45%;
+}
+
+.right p {
+  text-align: right;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.right button {
+  float: right;
+  font-weight: 700;
+  max-width: 130px;
+  margin-top: 14px;
+}
+
+.right input.amount {
+  width: 90px;
+  text-align: right;
+  float: right;
+  font-size: 14px;
+  line-height: 1.4285;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 30px;
+}
+
+.right span {
+  float: right;
+  padding-top: 5px;
+  padding-left: 20px;
+}
+
+.leftRes {
+  float: left;
+  max-width: 180px;
+}
+
+.leftRes button {
+  float:left;
+  font-weight: 700;
+  max-width: 160px;
+}
+
+.rightRes {
+  float: right;
+  max-width: 180px;
+  margin-right: 17px;
+}
+
+.rightRes button {
+  float: right;
+  font-weight: 700;
+  max-width: 130px;
+}
+
+.bottomDiv {
+  margin-top: 260px;
+}
+
+.bottomDiv .left {
+  margin-left: 0;
+}
+
+.line {
+  width: 100%;
+  border: 0.001em solid #989898;
+  margin-top: 220px;
+  margin-bottom: 20px;
+}
+
+.reviewSpan {
+  font-weight: 700;
+  font-family: "Work Sans";
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-style: normal;
+}
+
+.radioButtons {
+  height: 36px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.approve, .review, .decline {
+  float: left;
+  width: 44px;
+  height: 35px;
+  margin-left: 5px;
+}
+
+.productInfo {
+  font-weight: 700;
+  font-family: "Work Sans";
+  text-align: left;
+}
+
+.inputTotal {
+  width: 90px;
+  float: right;
+  font-size: 14px;
+  line-height: 1.4285;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 30px;
+  text-align: right;
+}
+
+.labelTotal {
+  width: 46px;
+  margin-right: 28px;
+  font-weight: 700;
+  font-family: "Work Sans";
+  float: right;
+  margin-top: 3px;
+}
+
+.labelQuantity {
+  float: right;
+  font-weight: 700;
+  font-family: "Work Sans";
+  margin-top: 3px;
+  margin-right: 15px;
+}
+
+.amountDiv {
+  height: 30px;
+}
+
+.totalDiv {
+  margin-top: 10px;
+  height: 30px;
+}
+
+.leftSpanPrice {
+  font-size: 15px;
+  float: right;
+  font-family: "Work Sans";
+  font-weight: 700;
+}

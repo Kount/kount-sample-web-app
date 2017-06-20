@@ -1,0 +1,160 @@
+
+/* Css for header */
+.hImage {
+  margin: auto;
+  display: block;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.title {
+  font-family: 'Work Sans Bold', 'Work Sans Regular', 'Work Sans';
+  font-weight: 700;
+  font-size: 32px;
+  color: #FFFFFF;
+}
+
+.subTitle {
+  font-family: 'Work Sans Bold', 'Work Sans Regular', 'Work Sans';
+  font-weight: 700;
+  font-size: 18px;
+  color: #FFFFFF;
+  word-wrap: break-word;
+}
+
+.header {
+  background-color: #2F3640;
+  height: 70px;
+}
+
+.headerImg {
+  top: 4px;
+  width: 177px;
+  height: 60px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+  color: #333333;
+  text-align: center;
+  line-height: normal;
+  outline: none;
+  border-style: none;
+}
+
+.headerImage {
+  margin: 0 auto 0 540px;
+  width: 180px;
+}
+
+.links {
+  height: 50px;
+  background-color: white;
+}
+
+.innerLinks {
+  padding-top: 15px;
+  margin: 0 auto;
+  width: 750px;
+}
+
+.github {
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.github a:link {
+  text-decoration: none;
+}
+
+.java {
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.java a:link {
+  text-decoration: none;
+}
+
+.php {
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.php a:link {
+  text-decoration: none;
+}
+
+.net {
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.net a:link {
+  text-decoration: none;
+}
+
+.python {
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.python a:link {
+  text-decoration: none;
+}
+
+.awc {
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.awc a:link {
+  text-decoration: none;
+}
+
+.github a, .java a, .php a, .net a, .python a, .awc a {
+  color: #333333;
+  font-family: "Work Sans";
+  font-style: normal;
+  line-height: normal;
+  font-size: 16px;
+}
+
+.well {
+  background-color: rgba(0, 150, 170, 1);
+  background-image: url(../img/topimage.jpg);
+}
+
+/* Css for footer */
+
+.footer {
+  height: 120px;
+  background-color: #2F3640;
+}
+
+.footerImg {
+  left: 500px;
+  position: absolute;
+  width: 140px;
+  height: 50px;
+  margin-top: 15px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+  color: #333333;
+  text-align: center;
+  line-height: normal;
+  outline: none;
+  border-style: none;
+}
+
+.footerSpan {
+  position: absolute;
+  left: 900px;
+  margin-top: 33px;
+  color: #FFFFFF;
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: normal;
+}
