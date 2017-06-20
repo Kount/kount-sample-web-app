@@ -9,11 +9,11 @@ This basic web application is a simplified representation of a standard customer
 
 The web application integrates two of the Kount Fraud Detection services -- the Kount Data Collector and the Kount Risk Inquiry Service (RIS). It is written in PHP and uses the Kount RIS PHP SDK.
 
-h5. Kount Data Collector
+#### Kount Data Collector
 
 The Kount Data Collector is a service used to gather information for the customer provided by the device they use. The collected data includes: standard device fingerprints, IP address, Internet Service Provider, geo-location based on the customer's IP address and many more. The information obtained by the Data Collector service is stored for subsequent usage by Kount's fraud detection algorithms.
 
-h5. Kount Ris Inquiry service
+#### Kount Ris Inquiry service
 
 This tool can make automated decisions for the level of fraud-likeliness of customer purchases. It uses various parameters:
 * purchase details -- items and item descriptions, prices, item quantities, etc.
