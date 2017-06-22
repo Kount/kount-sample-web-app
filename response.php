@@ -7,7 +7,7 @@ if (!$session) {
 }
 
 include('header.php');
-include '../src/autoload.php';
+include './vendor/kount/kount-ris-php-sdk/src/autoload.php';
 
 $ini = parse_ini_file('config.ini');
 
