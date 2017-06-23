@@ -421,15 +421,34 @@ h4 {
   background: radial-gradient(ellipse at center, #CCC 50%, transparent 50%);
 }
 
-#expand {
-  height: 0;
-  overflow: hidden;
-  transition: height 0.5s;
-  color: #FFF;
+.fullResponse {
+  margin: 0 auto;
 }
 
-#toggle:checked ~ #expand {
-  height: auto;
+h3.heading {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: #595959;
 }
-#toggle:checked ~ label::before {
+
+.fullResponse .formLabel {
+  height: 15px;
+  width: 180px;
+  font-style: oblique;
+  font-size: 14px;
+  color: #666666;
+  font-weight: 400 !important;
+  padding-bottom: 20px;
+}
+
+.fullResponse .form-control {
+  min-width: 250px;
+  height: 25px;
+  background-color: #CCCCCC !important;
+  font-family: "Work Sans";
+  font-weight: 400;
+  text-decoration: none;
+  text-align: right;
+  color: #666666;
 }
