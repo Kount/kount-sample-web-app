@@ -19,3 +19,4 @@ This tool can make automated decisions for the level of fraud-likeliness of cust
 * purchase details -- items and item descriptions, prices, item quantities, etc.
 * customer details -- customer provided data for name, e-mail address, billing and shipping address, customer age and gender, etc.
 * information collected by the Kount Data Collector
+
