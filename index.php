@@ -9,6 +9,10 @@ if (!$session) {
 }
 
 include('header.php');
+
+$ini = parse_ini_file('config.ini');
+
+$merchantId = $ini["MERCHANT_ID"];
 ?>
   <style>
     tr {
@@ -84,11 +88,13 @@ include('header.php');
           <h4 class="other"> Other Information </h4>
 
           <span class="infoSpan">The above parameters are usually set in a group representing the whole customer cart. The values are then merged into single strings for each parameter type to keep the request shorter in length. Kount is internally parsing those values to provide the ability to operate over them.</span>
-
-
         </div>
       </div>
       <br/><br/>
+
+    <iframe id="iFrame" width=1 height=1 frameborder=0 scrolling=no src="./logoHtm.php?m=<?=$merchantId?>&s=<?=$session?>">
+      <img width=10 height=10 src="./logoGif.php?m=<?=$merchantId?>&s=<?=$session?>">
+    </iframe>
     </div>
 <?php
 include('footer.php');

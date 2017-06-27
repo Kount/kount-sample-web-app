@@ -7,13 +7,11 @@ if (!$session) {
 }
 
 include('header.php');
-include '../src/autoload.php';
+require __DIR__ . './vendor/autoload.php';
 
-$ini = parse_ini_file('config.ini');
-
-$merchantId = $ini["MERCHANT_ID"];
-$url = $ini["URL"];
-$apiKey = $ini["API_KEY"];
+$merchantId = 999666;
+$url = "https://risk.beta.kount.net";
+$apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OTk2NjYiLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNDk0NTM0Nzk5LCJzY3AiOnsia2EiOm51bGwsImtjIjpudWxsLCJhcGkiOmZhbHNlLCJyaXMiOnRydWV9fQ.eMmumYFpIF-d1up_mfxA5_VXBI41NSrNVe9CyhBUGck";
 
 $name = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST['recipient_name'] : '';
 $email = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST['recipient_email'] : '';
@@ -29,8 +27,10 @@ $desc = $_POST['desc'] ? $_POST['desc'] : 'Description';
 $quantity = $_POST['item_quantity'] ? $_POST['item_quantity'] : 1;
 $price = $_POST['price'] ? $_POST['price'] : 995;
 $amount = $_POST['amount'] ? $_POST['amount'] : 5;
-$total = $amount * 40;
-$risKeys = array('AUTO', 'VERS', 'MODE', 'MERC', 'SCOR', 'GEOX', 'ERRO', 'ERRO_COUNT', 'RULES_TRIGGERED', 'RULE_DESCRIPTION_0', 'RULE_DESCRIPTION_1');
+$total = $amount * 4000;
+$risKeys = array(
+  'AUTO', 'KAPT', 'VERS', 'MODE', 'MERC', 'SCOR', 'SESS', 'TRAN'
+);
 
 $approveMessage = "Thank you for your order.  Please check your email for order confirmation and shipping information.";
 $reviewMessage = "We are processing your order now!  We will send a confirmation to the email address you provided.";
@@ -75,7 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
   $request->setMack('Y');
   $request->setMode('Q');
   $request->setPaymentMasked('0007380568572514');
-  $request->setUserAgent('Mozilla/5.0(Macintosh; Intel Mac OSX 10_9_5)AppleWebKit/537.36(KHTML, like Gecko)Chrome/37.0.2062.124Safari/537.36');
   $request->setTotal($total);
   $request->setWebsite('DEFAULT');
   $request->setIpAddress(IPAD);
@@ -93,6 +92,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
   $response = $request->getResponse();
   $status = $response->getErrorCode();
   $score = $response->getScore();
+
+  $_SESSION['responseArray'] = $response->getResponseAsDict();
+
 }
 ?>
 <style>
@@ -151,12 +153,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
     </div>
   </div>
 
-  <div class="col-md-6 explanationCol">
+  <div class="col-md-6 explanationCol" style="border-left: 1px solid #646464;">
     <h4>Fields Received from RIS</h4>
     <span class="explSpan">Here's a list of some of the most used fields from the Kount RIS Response. Those include information of the request status, merchant credentials, and merchant-defined rules that were triggered by the request parameter values.</span>
+    <input class="inputExpand" id="toggle" type="checkbox">
+    <label id="popUpAnchor" class="labelExpand" for="toggle">View list of RIS response fields</label>
     <form class="responsePricingForm" method="POST">
       <table>
-        <?php foreach ($response->getResponseArray() as $key => $res) {
+        <?php foreach ($response->getResponseAsDict() as $key => $res) {
           if ((array_search($key, $risKeys)) !== false) {
             echo '<tr>';
             echo '<td><label class="formLabel" for="">' . $key . '</label></td>';
@@ -181,7 +185,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
   btn2.addEventListener('click', function (e) {
     e.preventDefault();
     document.location.href = 'index.php';
-  })
+  });
+  var link = document.getElementById('popUpAnchor');
+    link.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.open('fullResponse.php', '_blank', 'width=1000px, height=700px, left=450px, top=180px, menubar=no, status=no, titlebar=no, resizable=no');
+  });
 </script>
 
 <?php

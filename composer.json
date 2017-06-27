@@ -1,0 +1,7 @@
+{
+  "name": "Kount demo web application.",
+  "description": "A demo web application demonstrating the usage of Kount's php sdk.",
+  "require" : {
+    "kount/kount-ris-php-sdk" : "6.5.2"
+  }
+}

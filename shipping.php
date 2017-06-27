@@ -166,7 +166,7 @@ $price = isset($price) ? $price : 995;
               <label class="labelQuantity" for=""> Quantity: </label>
             </div>
             <div class="totalDiv">
-              <input id="totalInput" class="inputTotal" type="number" name="total" value="200" readonly>
+              <input id="totalInput" class="inputTotal" type="number" name="total" value="20000" readonly>
               <label class="labelTotal" for="">Total: </label>
             </div>
             <button id="purchase" type="submit" value="submit" class="btn btn-primary shipping">
@@ -178,7 +178,7 @@ $price = isset($price) ? $price : 995;
       <br/>
     </div>
   </div>
-  <div class="col-md-6 explanationCol">
+  <div class="col-md-6 explanationCol" style="border-left: 1px solid #646464;">
     <h4 class="explanation"> Explanation </h4>
     <span class="explSpan">Here are the RIS request parameters related to user information. Those include user details such as customer name, age, address, shipping address, specific geo-details. The request can also include important information gathered by the Kount Data Collector tool based on the customer browser and internet session.</span>
     <form class="pricingForm">
@@ -213,11 +213,15 @@ $price = isset($price) ? $price : 995;
           <td><label class="formLabel" for="">LAST4</label></td>
           <td><input class="form-control" type="text" name="lastFour" value="1234" readonly></input></td>
         </tr>
+        <tr>
+          <td><label class="formLabel" for="">TOTL</label></td>
+          <td><input id="totlInput" class="form-control" type="text" name="total" value="20000" readonly></input></td>
+        </tr>
       </table>
       <br/>
       <br/><br/>
     </form>
-    <h4 class="other" style="margin-top: 90px;"> Other Information </h4>
+    <h4 class="other" style="margin-top: 120px;"> Other Information </h4>
     <span class="infoSpan">Depending on merchant-specific reqiurements, the request can be tuned with several other switches determining the behavior if any mismatch is noticed in the customer details or the purchase cart details. Those parameters are not shown here, but they are technically described in Kount SDK wikis. <br/>Also, all sensitive information like credit card numbers and any possible payment tokens is internally encrypted with a Kount-developed algorithm to defend both customers and merchants from possible man-in-the-middle attacks. Encrypted data may be used for cross-merchant analysis when detecting possible frauds.</span>
   </div>
 </div>
@@ -231,17 +235,17 @@ $price = isset($price) ? $price : 995;
   var approve = document.getElementById("approve");
   approve.addEventListener('click', function (e) {
     $('#amountInput').val(5);
-    $('#totalInput').val(5 * 40);
+    $('#totalInput, #totlInput').val(5 * 4000);
   });
   var review = document.getElementById("review");
   review.addEventListener('click', function (e) {
-    $('#amountInput').val(10000);
-    $('#totalInput').val(10000 * 40);
+    $('#amountInput').val(100);
+    $('#totalInput, #totlInput').val(100 * 4000);
   });
   var decline = document.getElementById("decline");
   decline.addEventListener('click', function (e) {
-    $('#amountInput').val(10000000);
-    $('#totalInput').val(10000000 * 40);
+    $('#amountInput').val(100000);
+    $('#totalInput, #totlInput').val(100000 * 4000);
   });
 </script>
 <?php

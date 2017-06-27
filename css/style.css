@@ -1,7 +1,7 @@
 
 body {
   background-color: #E7E3E0;
-  font-family: "Work Sans", "Work Sans Bold", "Work Sans Regular";
+  font-family: Work Sans, Arial, sans-serif;
 }
 
 .row {
@@ -15,7 +15,7 @@ body {
 
 .productName {
   float: right;
-  font-family: "Work Sans", "Work Sans Bold", "Work Sans Regular";
+  font-family: Work Sans, Arial, sans-serif;
   font-weight: 700;
   font-size: 28px;
   top: 25px;
@@ -23,14 +23,14 @@ body {
 
 .productPrice {
   float: right;
-  font-family: "Work Sans", "Work Sans Bold", "Work Sans Regular";
+  font-family: Work Sans, Arial, sans-serif;
   font-weight: 700;
   font-size: 28px;
   top: 25px;
 }
 
 .productDesc {
-  font-family: "Work Sans", "Work Sans Bold", "Work Sans Regular";
+  font-family: Work Sans, Arial, sans-serif;
   font-weight: 700;
   font-size: 16px;
   top: 115px;
@@ -112,7 +112,7 @@ form.pricingForm input.form-control {
   min-width: 250px;
   height: 25px;
   background-color: #CCCCCC !important;
-  font-family: "Work Sans";
+  font-family: Work Sans, Arial, sans-serif;
   font-weight: 400;
   text-decoration: none;
   text-align: right;
@@ -128,7 +128,7 @@ form.pricingForm input.form-control {
   min-width: 250px;
   height: 25px;
   background-color: #CCCCCC !important;
-  font-family: "Work Sans";
+  font-family: Work Sans, Arial, sans-serif;
   font-weight: 400;
   text-decoration: none;
   text-align: right;
@@ -194,7 +194,6 @@ h4 {
 .checkout {
   min-height: 500px;
   height: auto;
-  border-right: 1px solid #646464;
 }
 
 .checkout .col-md-8 {
@@ -317,7 +316,7 @@ h4 {
 
 .reviewSpan {
   font-weight: 700;
-  font-family: "Work Sans";
+  font-family: Work Sans, Arial, sans-serif;
   font-size: 14px;
   text-align: center;
   margin-bottom: 20px;
@@ -340,7 +339,7 @@ h4 {
 
 .productInfo {
   font-weight: 700;
-  font-family: "Work Sans";
+  font-family: Work Sans, Arial, sans-serif;
   text-align: left;
 }
 
@@ -360,7 +359,7 @@ h4 {
   width: 46px;
   margin-right: 28px;
   font-weight: 700;
-  font-family: "Work Sans";
+  font-family: Work Sans, Arial, sans-serif;
   float: right;
   margin-top: 3px;
 }
@@ -368,7 +367,7 @@ h4 {
 .labelQuantity {
   float: right;
   font-weight: 700;
-  font-family: "Work Sans";
+  font-family: Work Sans, Arial, sans-serif;
   margin-top: 3px;
   margin-right: 15px;
 }
@@ -385,6 +384,71 @@ h4 {
 .leftSpanPrice {
   font-size: 15px;
   float: right;
-  font-family: "Work Sans";
+  font-family: Work Sans, Arial, sans-serif;
   font-weight: 700;
+}
+
+.inputExpand {
+  display: none;
+  visibility: hidden;
+}
+
+.labelExpand {
+  display: block;
+  padding: 0.5em;
+  text-align: center;
+  border-bottom: 1px solid #CCC;
+  color: #2f2f2d;
+  font-family: Work Sans, Arial, sans-serif;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.labelExpand:hover {
+  color: #898989;
+}
+
+.labelExpand::before {
+  font-family: Work Sans, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  vertical-align: text-top;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  background: radial-gradient(ellipse at center, #CCC 50%, transparent 50%);
+}
+
+.fullResponse {
+  margin: 0 auto;
+}
+
+h3.heading {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: #595959;
+}
+
+.fullResponse .formLabel {
+  height: 15px;
+  width: 180px;
+  font-style: oblique;
+  font-size: 14px;
+  color: #666666;
+  font-weight: 400 !important;
+  padding-bottom: 20px;
+}
+
+.fullResponse .form-control {
+  min-width: 250px;
+  height: 25px;
+  background-color: #CCCCCC !important;
+  font-family: Work Sans, Arial, sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: right;
+  color: #666666;
 }
