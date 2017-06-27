@@ -8,15 +8,14 @@
 }
 
 .title {
-  font-family: 'Work Sans Bold', 'Work Sans Regular', 'Work Sans';
+  font-family: Work Sans, Arial, sans-serif;
   font-weight: 700;
   font-size: 32px;
   color: #FFFFFF;
 }
 
 .subTitle {
-  font-family: 'Work Sans Bold', 'Work Sans Regular', 'Work Sans';
-  font-weight: 700;
+  font-family: Work Sans, Arial, sans-serif;
   font-size: 18px;
   color: #FFFFFF;
   word-wrap: break-word;
@@ -113,10 +112,10 @@
 
 .github a, .java a, .php a, .net a, .python a, .awc a {
   color: #333333;
-  font-family: "Work Sans";
+  font-family: Work Sans, Arial, sans-serif;
   font-style: normal;
   line-height: normal;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .well {
@@ -152,7 +151,7 @@
   left: 900px;
   margin-top: 33px;
   color: #FFFFFF;
-  font-family: "Work Sans";
+  font-family: Work Sans, Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 14px;

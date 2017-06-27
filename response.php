@@ -7,13 +7,11 @@ if (!$session) {
 }
 
 include('header.php');
-include './vendor/kount/kount-ris-php-sdk/src/autoload.php';
+require __DIR__ . './vendor/autoload.php';
 
-$ini = parse_ini_file('config.ini');
-
-$merchantId = $ini["MERCHANT_ID"];
-$url = $ini["URL"];
-$apiKey = $ini["API_KEY"];
+$merchantId = 999666;
+$url = "https://risk.beta.kount.net";
+$apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OTk2NjYiLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNDk0NTM0Nzk5LCJzY3AiOnsia2EiOm51bGwsImtjIjpudWxsLCJhcGkiOmZhbHNlLCJyaXMiOnRydWV9fQ.eMmumYFpIF-d1up_mfxA5_VXBI41NSrNVe9CyhBUGck";
 
 $name = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST['recipient_name'] : '';
 $email = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST['recipient_email'] : '';
@@ -95,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
   $status = $response->getErrorCode();
   $score = $response->getScore();
 
-  $_SESSION['responseArray'] = $response->getResponseArray();
+  $_SESSION['responseArray'] = $response->getResponseAsDict();
 
 }
 ?>
@@ -162,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
     <label id="popUpAnchor" class="labelExpand" for="toggle">View list of RIS response fields</label>
     <form class="responsePricingForm" method="POST">
       <table>
-        <?php foreach ($response->getResponseArray() as $key => $res) {
+        <?php foreach ($response->getResponseAsDict() as $key => $res) {
           if ((array_search($key, $risKeys)) !== false) {
             echo '<tr>';
             echo '<td><label class="formLabel" for="">' . $key . '</label></td>';
