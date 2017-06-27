@@ -31,7 +31,7 @@ There are two ways to integrate this web application with Kount's sdk:
   ```
     This will install a version of Kount's PHP SDK, currently it's working with the latest(6.5.2, https://github.com/Kount/kount-ris-php-sdk/releases)
     
-* Direct Download
+* Direct Download  
   To use installation with direct download, you need to download the latest version(6.5.2, from Downloads: https://github.com/Kount/kount-ris-php-sdk/releases) into a folder and place it in the root of the web application.
   You will also need to change a line in the response.php file.
   ```php
@@ -49,7 +49,7 @@ You will also need to add a bit of configuration, so that everything runs smooth
 Once you have a merchantId and url, you must set them in src/settings.ini, which is in the php sdk.
 * If you've used composer installation the src folder is located in: 
   ```php
-  $ cd path-to-web-app/vendor/kount/src/settings.ini
+  $ cd path-to-web-app/vendor/kount/kount-ris-php-sdk/src/settings.ini
   ```
 * If you've used the direct download option the src folder is located in:
   ```php
