@@ -96,7 +96,7 @@ $merchantId = $ini["MERCHANT_ID"];
 
   <script type="text/javascript" src='https://bta.kaptcha.com/collect/sdk?m=<?=$merchantId?>&s=<?=$session?>'>
   </script>
-  <img width="10" height="10" src='https://bta.kaptcha.com/logo.gif?m=<?=$merchantId?>&s=<?=$session?>'/>
+  <img width="1" height="1" src='https://bta.kaptcha.com/logo.gif?m=<?=$merchantId?>&s=<?=$session?>'/>
 
 </div>
 <?php
