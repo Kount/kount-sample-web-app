@@ -1,4 +1,12 @@
 
+kount-sample-web-app 1.3.0
+==========================
+**06/29/2017**
+
+### Improvements
+* replaced the iframe data collector device with Kount's js data collector device(It's using a js script and an image tags).
+* refactored the path including Kount's php sdk, to be compatible with other operational systems(Linux, OS X).
+
 kount-sample-web-app 1.2.0
 ==========================
 **06/27/2017**
