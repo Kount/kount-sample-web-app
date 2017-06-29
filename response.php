@@ -7,7 +7,7 @@ if (!$session) {
 }
 
 include('header.php');
-require __DIR__ . './vendor/autoload.php';
+require __DIR__ . '/./vendor/autoload.php';
 
 $merchantId = 999666;
 $url = "https://risk.beta.kount.net";
