@@ -189,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
   var link = document.getElementById('popUpAnchor');
     link.addEventListener('click', function (e) {
     e.preventDefault();
-    window.open('fullResponse.php', '_blank', 'width=1000px, height=700px, left=450px, top=180px, menubar=no, status=no, titlebar=no, resizable=no');
+    window.open('fullResponse.php', '_blank', 'width=1000px, height=700px, left=450px, top=180px, menubar=no, status=no, titlebar=no, resizable=no, scrollbars=yes');
   });
 </script>
 
