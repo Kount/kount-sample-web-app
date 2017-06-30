@@ -1,4 +1,11 @@
 
+kount-sample-web-app 1.3.1
+==========================
+**06/30/2017**
+
+### Bugfixes
+* fixed a bug on Firefox and IE - vertical scroll on the pop-up window for the full RIS response was missing.   
+
 kount-sample-web-app 1.3.0
 ==========================
 **06/29/2017**
