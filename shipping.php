@@ -230,7 +230,7 @@ $price = isset($price) ? $price : 995;
   var btn = document.getElementById("back");
   btn.addEventListener('click', function (e) {
     e.preventDefault();
-    document.location.href = 'index.php';
+    document.location.href = 'home.php';
   });
   var approve = document.getElementById("approve");
   approve.addEventListener('click', function (e) {

@@ -151,11 +151,11 @@ form.pricingForm input.form-control {
   left: -230px;
 }
 
-.checkoutBtn .btn {
+.checkoutBtn .btn, .submitLogin .btn {
   background-color: #0096AA;
 }
 
-.checkoutBtn .btn:hover {
+.checkoutBtn .btn:hover, .submitLogin .btn:hover {
   background-color: rgba(0, 203, 232, 1);
 }
 
@@ -166,7 +166,7 @@ h4 {
 .product {
   min-height: 500px;
   height: auto;
-  border-right: 1px solid #646464;
+
 }
 
 .product-9 {
@@ -179,6 +179,7 @@ h4 {
   min-height: 500px;
   height: auto;
   top: 45px;
+  border-left: 1px solid #646464;
 }
 
 .checkoutForm input.form-control, .checkoutForm select.form-control {
@@ -451,4 +452,90 @@ h3.heading {
   text-decoration: none;
   text-align: right;
   color: #666666;
+}
+
+.loginForm {
+  min-height: 225px;
+  max-width: 339px;
+}
+
+.col-md-8.login {
+  margin: 100px auto 0 auto;
+  min-height: 300px;
+}
+
+.loginForm input {
+  width: 300px;
+  height: 30px;
+  font-family: "Work Sans", Arial, SansSerif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:  13px;
+  text-decoration: none;
+  text-align: left;
+}
+
+.submitLogin {
+  width: 300px;
+  height: 55px;
+  margin-top: 35px;
+}
+
+button.login {
+  float: right;
+  width: 140px;
+  height: 40px;
+  font-weight: 600;
+}
+
+.guestSpan {
+  margin-left: 60px;
+  font-size: 17px;
+}
+
+.passTooltip {
+  width: 40px;
+  float: right;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.passTooltip img {
+  margin-bottom: 2px;
+}
+
+.questionMark {
+  margin-left: -16px;
+  font-family: "Work Sans";
+}
+
+.tooltipText {
+  position: absolute;
+  padding-left: 4px;
+  top: 24px;
+  left: 23px;
+  visibility: hidden;
+  display: none;
+  width: 205px;
+  height: 90px;
+  background-color: rgba(255, 255, 255, 1);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(121, 121, 121, 1);
+  box-shadow: none;
+  font-family: 'Arial';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 11px;
+  color: #000000;
+  text-align: left;
+  z-index: 200;
+}
+
+.passTooltip:hover .tooltipText {
+  visibility: visible;
+  display: block;
 }

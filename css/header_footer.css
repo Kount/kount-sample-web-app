@@ -23,7 +23,7 @@
 
 .header {
   background-color: #2F3640;
-  height: 70px;
+  height: 80px;
 }
 
 .headerImg {
@@ -41,8 +41,8 @@
 }
 
 .headerImage {
-  margin: 0 auto 0 540px;
-  width: 180px;
+  margin-left: 500px;
+  display: inline-block;
 }
 
 .links {
@@ -156,4 +156,22 @@
   font-style: normal;
   font-size: 14px;
   line-height: normal;
+}
+
+.account {
+  float: right;
+  margin: 25px 80px 10px 0;
+}
+
+.account .logBtn {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: work sans-serif, sans-serif;
 }

@@ -1,3 +1,13 @@
+<?php
+
+$session = session_id();
+if (!$session) {
+  session_start();
+  $session = session_id();
+}
+
+?>
+
 <html>
     <head>
         <meta charset="utf-8" />
@@ -13,6 +23,11 @@
         <div class="header">
           <div class="headerImage">
             <img class="headerImg" src="img/kount-central-logo.jpg" width="177px" height="50px">
+          </div>
+          <div class="account">
+            <form action="logout.php" method="POST">
+              <button class="logBtn" id="logBtn"><?=isset($_SESSION['username']) ? $_SESSION['username'] . " (Logout)" : "Log In" ?> </button>
+            </form>
           </div>
         </div>
 
@@ -41,11 +56,12 @@
 
         <div class="well">
           <img class="hImage" src="img/kount-demo.png" width="343" height="80"/>
-          <p style="text-align:center"><span class="title">Beat Fraud and Boost Sales with Kount</span></p>
-          <p style="text-align:center"><span class="subTitle">This quick demo will show how seamless it is to add Kount to your eCommerce experience: reduce fraud while ensuring </span></p>
-          <p style="text-align: center"><span class="subTitle"> your customers have a  great online shopping experience</span></p>
+          <div>
+            <p style="text-align:center"><span class="title">Beat Fraud and Boost Sales with Kount</span></p>
+            <p style="text-align:center"><span class="subTitle">This quick demo will show how seamless it is to add Kount to your eCommerce experience: reduce fraud while ensuring </span></p>
+            <p style="text-align: center"><span class="subTitle"> your customers have a  great online shopping experience</span></p>
+          </div>
         </div>
     </body>
-
 </html>
 

@@ -184,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
   var btn2 = document.getElementById('shopAgain');
   btn2.addEventListener('click', function (e) {
     e.preventDefault();
-    document.location.href = 'index.php';
+    document.location.href = 'home.php';
   });
   var link = document.getElementById('popUpAnchor');
     link.addEventListener('click', function (e) {
