@@ -27,7 +27,6 @@ const host        = merchantId . ".kountaccess.com";
 const accessUrl   = "https://" . host . "/access";
 const apiKey      = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OTk2NjYiLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNDk5ODcwNDgwLCJzY3AiOnsia2EiOnRydWUsImtjIjp0cnVlLCJhcGkiOnRydWUsInJpcyI6dHJ1ZX19.yFan6moxBonnG8Vk9C_qRpF-eTF00_MRBwgqMdNdy8U";
 const serverUrl   = "api-sandbox01.kountaccess.com";
-const serverUrl2  = "api-sandbox02.kountaccess.com";
 
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
 $password = isset($_SESSION['password']) ? $_SESSION['password'] : null;
@@ -76,7 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
 
       <div class="col-md-6 explanation" style="min-height: 460px">
         <h4 class="explanation"> Explanation </h4>
-        <span class="explSpan">Several of the product purchase related parameters are presented below. Those include item identifier, description, price, and quantity. The values for those product specifications can be used by Kount services to provide better insight and control of customer purchases using predefined rules, operating over those parameters.</span>
+        <span class="explSpan">The most important fields after a successful call to the Kount Access API and response are listed below. These particular parameters are taken from the device output and a option to view the full list of the returned response. </span>
         <form class="pricingForm" action="shipping.php" method="POST">
           <input type="text" name="csrf" value="-->-<?php //echo($session['csrf']);?><!--" hidden readonly/>
           <table>
@@ -103,7 +102,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
         </form>
         <h4 class="other"> Other Information </h4>
 
-        <span class="infoSpan">The above parameters are usually set in a group representing the whole customer cart. The values are then merged into single strings for each parameter type to keep the request shorter in length. Kount is internally parsing those values to provide the ability to operate over them.</span>
+        <span class="infoSpan">The above parameters are retrieved by the /decision call which includes device information and velocity data in addition to the decision information. The decision value can be either <strong>"A"</strong> - Approve, or <strong>"D"</strong> - Decline.  </span>
       </div>
     </div>
     <br/><br/>

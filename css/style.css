@@ -109,7 +109,7 @@ label.formLabel {
 }
 
 form.pricingForm input.form-control {
-  min-width: 250px;
+  min-width: 280px;
   height: 25px;
   background-color: #CCCCCC !important;
   font-family: Work Sans, Arial, sans-serif;

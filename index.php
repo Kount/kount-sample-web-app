@@ -18,6 +18,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   authenticateUser();
 }
 
+$userHash = isset($_SESSION['username']) ? hash('md2', $_SESSION['username']) : '';
+$passwordHash = isset($_SESSION['password']) ? hash('md2', $_SESSION['password']) : '';
+
 $goodPasswords = array('2fa', 'kount');
 
 function authenticateUser() {
@@ -115,7 +118,7 @@ include('header.php');
 
     <div class="col-md-6 explanation" style="min-height: 460px">
       <h4 class="explanation"> Explanation </h4>
-      <span class="explSpan">Several of the product purchase related parameters are presented below. Those include item identifier, description, price, and quantity. The values for those product specifications can be used by Kount services to provide better insight and control of customer purchases using predefined rules, operating over those parameters.</span>
+      <span class="explSpan">Some of the required fields for kount access processes are presented below. The requests use hashed versions of the user's password and username used for login and the sessionId is a value used by Kount's Data Collector service.</span>
       <form class="pricingForm" action="shipping.php" method="POST">
         <input type="text" name="csrf" value="-->-<?php //echo($session['csrf']);?><!--" hidden readonly/>
         <table>
@@ -123,24 +126,23 @@ include('header.php');
           <tr>
             <td><label class="formLabel" for="">sessionId</label></td>
             <td><input class="form-control" type="text" name="session"
-                       value="328457fsd8d7982w3r789erf7"
+                       value=<?=$session?>
                        readonly></input></td>
           </tr>
           <tr>
             <td><label class="formLabel" for="">userHash</label></td>
-            <td><input class="form-control" type="text" name="user" value="fgfoisdfdsf987897fd9s9878s9d7" readonly></input></td>
+            <td><input class="form-control" type="text" name="user" placeholder="Hashed value of the username." value="<?=$userHash?>" readonly></input></td>
           </tr>
           <tr>
             <td><label class="formLabel" for="">passwordHash</label></td>
-            <td><input class="form-control" type="text" name="password" value="bd0eg809gjv098vf90fcd8g900fd" readonly></input></td>
+            <td><input class="form-control" type="text" name="password" placeholder="Hashed value of the password." value="<?=$passwordHash?>" readonly></input></td>
           </tr>
         </table>
         <br/>
         <br/><br/>
       </form>
       <h4 class="other"> Other Information </h4>
-
-      <span class="infoSpan">The above parameters are usually set in a group representing the whole customer cart. The values are then merged into single strings for each parameter type to keep the request shorter in length. Kount is internally parsing those values to provide the ability to operate over them.</span>
+      <span class="infoSpan">In order to use the API service to evaluate your transaction, you will need to have the Data Collector already setup and installed in your login page. Once this has been done, and you have access to the information on the login page you can make API service calls via the Kount_Access library to evaluate the login attempt. </span>
     </div>
   </div>
   <br/><br/>
