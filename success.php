@@ -14,9 +14,7 @@ if (!$session) {
 
 
 
-require_once('./kount-access-php-sdk/lib/kount_access_service.php');
-require_once('./kount-access-php-sdk/lib/kount_access_curl_service.php');
-require_once('./kount-access-php-sdk/lib/kount_access_exception.php');
+require __DIR__ . './vendor/autoload.php';
 
 $ini = parse_ini_file('config.ini');
 
@@ -39,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
   try {
     $kount_access = new Kount_Access_Service(merchantId, apiKey, serverUrl, version);
     $response = $kount_access->get_decision($session, $username, $password);
-    var_dump($response);
+    //var_dump($response);
     //$response = $kount_access->get_device($session);
   } catch(Kount_Access_Exception $ae) {
     //var_dump($ae->getMessage());
