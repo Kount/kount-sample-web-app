@@ -65,7 +65,8 @@ const TOTL = 123456;
 const CASH = 4444;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET') {
-  $request = new Kount_Ris_Request_Inquiry();
+  $customPath = 'config.ini';
+  $request = new Kount_Ris_Request_Inquiry(Kount_Util_Khash::createKhash($customPath));
   $request->setName($name);
   $request->setEmail($email);
   $request->setSessionId($session);
