@@ -25,7 +25,7 @@ $goodPasswords = array('2fa', 'kount');
 
 function authenticateUser() {
   $goodPasswords = array('2fa', 'kount');
-  if(isset($_POST['password']) && isset($_POST['username'])) {
+  if(!empty($_POST['password']) && !empty($_POST['username'])) {
     if($_POST['password'] == 'kount') {
       $_SESSION['username'] = $_POST['username'];
       $_SESSION['password'] = $_POST['password'];
@@ -41,7 +41,6 @@ function authenticateUser() {
       unset($_POST['username']);
     }
   }
-  unset($_POST['username']);
 }
 
 include('header.php');
@@ -103,8 +102,8 @@ include('header.php');
           echo '<span class="questionMark" >?</span >';
           echo '<span class="tooltipText" > <br />' .  'Successful Login Password = kount'  .  "<br />" . "<br />" .   'Two Factor Authentication Login = 2fa' . "<br />" . '</span >';
           echo '</div >';
-          echo '<input class="form-control" name = "username" style = "margin-bottom: 30px" placeholder = "Enter username" type = "text" >';
-          echo '<input class="form-control" name = "password" placeholder = "Enter password" type = "password" >';
+          echo '<input id="user" class="form-control userInput"  name="username" style="margin-bottom: 30px" placeholder="Enter username" type="text" required>';
+          echo '<input class="form-control" name = "password" placeholder = "Enter password" type = "password" required>';
           echo '<div class="submitLogin" >';
           echo '<button id = "login" class="btn btn-primary login" role = "button" > Submit </button >';
           echo '</div >';
