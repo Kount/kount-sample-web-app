@@ -146,9 +146,9 @@ include('header.php');
   </div>
   <br/><br/>
 
-  <script type="text/javascript" src='https://bta.kaptcha.com/collect/sdk?m=<?=$merchantId?>&s=<?=$session?>'>
+  <script type="text/javascript" src='https://sandbox01.kaxsdc.com/collect/sdk?m=<?=$merchantId?>&s=<?=$session?>'>
   </script>
-  <img width="1" height="1" src='https://bta.kaptcha.com/logo.gif?m=<?=$merchantId?>&s=<?=$session?>'/>
+  <img width="1" height="1" src='https://sandbox01.kaxsdc.com/logo.gif?m=<?=$merchantId?>&s=<?=$session?>'/>
 
 </div>
 <?php

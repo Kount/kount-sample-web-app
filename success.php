@@ -18,6 +18,10 @@ $ini = parse_ini_file('config.ini');
 
 $merchantId = $ini["MERCHANT_ID"];
 
+$accessKeys = array(
+        'country', 'region', 'ipAddress', 'decision'
+);
+
 const version = "0210";
 const merchantId = 999666;
 const host = merchantId . ".kountaccess.com";
@@ -32,12 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
   try {
     $kount_access = new Kount_Access_Service(merchantId, apiKey, serverUrl, version);
     $response = $kount_access->get_decision($session, $username, $password);
-    //var_dump($response);
-    //$response = $kount_access->get_device($session);
+    $_SESSION['accessResponse'] = $response;
   } catch (Kount_Access_Exception $ae) {
-    //var_dump($ae->getMessage());
-    //print_r("Error Code: " . $ae->getCode());
-    //var_dump($ae->getAccessErrorType());
+    print_r("Error Code: " . $ae->getCode());
   }
 }
 ?>
@@ -71,30 +72,33 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     <div class="col-md-6 explanation" style="min-height: 460px">
       <h4 class="explanation"> Explanation </h4>
       <span class="explSpan">The most important fields after a successful call to the Kount Access API and response are listed below. These particular parameters are taken from the device output and a option to view the full list of the returned response. </span>
-      <form class="pricingForm" action="shipping.php" method="POST">
+      <input class="inputExpand" id="toggle" type="checkbox">
+      <label id="popUpAnchor" class="labelExpand" for="toggle">View list of Kount Access response fields</label>
+      <form class="pricingForm" style="margin-top:30px" action="shipping.php" method="POST">
         <input type="text" name="csrf" value="-->-<?php //echo($session['csrf']);?><!--" hidden readonly/>
         <table>
-          <h4>Fields Passed</h4>
-          <tr>
-            <td><label class="formLabel" for="">Country</label></td>
-            <td><input class="form-control" type="text" name="item" value="BG" readonly></input></td>
-          </tr>
-          <tr>
-            <td><label class="formLabel" for="">Region</label></td>
-            <td><input class="form-control" type="text" name="price" value="JP_07" readonly></input></td>
-          </tr>
-          <tr>
-            <td><label class="formLabel" for="">Ip Address</label></td>
-            <td><input class="form-control" type="text" name="item_quantity" value="87.126.19.213" readonly></input>
-            </td>
-          </tr>
-          <tr>
-            <td><label class="formLabel" for="">decision</label></td>
-            <td><input class="form-control" type="text" name="type" value="test info....." readonly></input></td>
-          </tr>
+          <?php
+              foreach ($response['device'] as $key => $res) {
+                if ((array_search($key, $accessKeys)) !== false) {
+                  echo '<tr>';
+                  echo '<td><label class="formLabel" for="">' . strtoupper($key) . '</label></td>';
+                  echo "<td><input class='form-control' type='text' name='name' value='$res' readonly> </input></td>";
+                  echo '</tr>';
+                }
+              }
+              foreach ($response['decision']['reply']['ruleEvents'] as $key => $res) {
+                if ($key == "decision") {
+                  echo '<tr>';
+                  echo '<td><label class="formLabel" for="">' . strtoupper($key) . '</label></td>';
+                  echo "<td><input class='form-control' type='text' name='name' value='$res' readonly> </input></td>";
+                  echo '</tr>';
+                }
+              }
+          ?>
         </table>
         <br/>
-        <br/><br/>
+        <br/>
+        <br/>
       </form>
       <h4 class="other"> Other Information </h4>
       <span class="infoSpan">The above parameters are retrieved by the /decision call which includes device information and velocity data in addition to the decision information. The decision value can be either <strong>"A"</strong> - Approve, or <strong>"D"</strong> - Decline.  </span>
@@ -102,6 +106,13 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
   </div>
   <br/><br/>
 </div>
+<script>
+    var link = document.getElementById('popUpAnchor');
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.open('accessResponse.php', '_blank', 'width=1000px, height=700px, left=450px, top=180px, menubar=no, status=no, titlebar=no, resizable=no, scrollbars=yes');
+    });
+</script>
 
 <?php
 include('footer.php');

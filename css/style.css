@@ -431,6 +431,7 @@ h3.heading {
   margin-top: 20px;
   margin-bottom: 30px;
   color: #595959;
+  font-weight: bold;
 }
 
 .fullResponse .formLabel {
@@ -441,10 +442,11 @@ h3.heading {
   color: #666666;
   font-weight: 400 !important;
   padding-bottom: 20px;
+  text-align: center;
 }
 
 .fullResponse .form-control {
-  min-width: 250px;
+  min-width: 275px;
   height: 25px;
   background-color: #CCCCCC !important;
   font-family: Work Sans, Arial, sans-serif;
@@ -538,4 +540,25 @@ button.login {
 .passTooltip:hover .tooltipText {
   visibility: visible;
   display: block;
+}
+
+.headLabel {
+  height: 17px;
+  width: 180px;
+  font-style: oblique;
+  font-size: 16px;
+  color: #666666;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.smallHeadLabel {
+  height: 16px;
+  width: 180px;
+  font-style: oblique;
+  font-size: 16px;
+  color: #666666;
+  font-weight: 500;
+  padding-bottom: 20px;
+  padding-left: 30px;
 }
