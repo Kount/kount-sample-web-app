@@ -74,11 +74,21 @@ $accessArray = $_SESSION['accessResponse'];
 				echo '<td><label class="headLabel" style="font-weight: bold; font-size: 15px" for="">' . "Decision" . '</label></td>';
 				echo '</tr>';
 				echo '<tr>';
-				foreach ($accessArray[$key]['reply']['ruleEvents'] as $decisionKey => $dRes) {
-					echo '<tr>';
-					echo '<td><label class="formLabel" for="">' . strtoupper($decisionKey) . '</label></td>';
-					echo "<td><input class='form-control' type='text' name='name' value='$dRes' readonly> </input></td>";
-					echo '</tr>';
+				if (!is_array($accessArray[$key]['reply']['ruleEvents'])) {
+					foreach ($accessArray[$key]['reply']['ruleEvents'] as $decisionKey => $dRes) {
+						echo '<tr>';
+						echo '<td><label class="formLabel" for="">' . strtoupper($decisionKey) . '</label></td>';
+						echo "<td><input class='form-control' type='text' name='name' value='$dRes' readonly> </input></td>";
+						echo '</tr>';
+					}
+				} else {
+					foreach ($accessArray[$key]['reply']['ruleEvents']['ruleEvents'][0] as $eventKey => $eventValue) {
+						echo '<tr>';
+						echo '<td><label class="formLabel" for="">' . strtoupper($eventKey) . '</label></td>';
+						echo "<td><input class='form-control' type='text' name='name' value='$eventValue' readonly> </input></td>";
+						echo '</tr>';
+					}
+
 				}
 				break;
 		}

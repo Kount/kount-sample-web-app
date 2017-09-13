@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     $response = $kount_access->get_decision($session, $username, $password);
     $_SESSION['accessResponse'] = $response;
   } catch (Kount_Access_Exception $ae) {
-    print_r("Error Code: " . $ae->getCode());
+  	throw new Exception($ae->getMessage());
   }
 }
 ?>
