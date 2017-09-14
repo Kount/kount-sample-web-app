@@ -74,7 +74,7 @@ $accessArray = $_SESSION['accessResponse'];
 				echo '<td><label class="headLabel" style="font-weight: bold; font-size: 15px" for="">' . "Decision" . '</label></td>';
 				echo '</tr>';
 				echo '<tr>';
-				if (!is_array($accessArray[$key]['reply']['ruleEvents'])) {
+				if (!is_array($accessArray[$key]['reply']['ruleEvents']['ruleEvents'])) {
 					foreach ($accessArray[$key]['reply']['ruleEvents'] as $decisionKey => $dRes) {
 						echo '<tr>';
 						echo '<td><label class="formLabel" for="">' . strtoupper($decisionKey) . '</label></td>';
@@ -88,7 +88,6 @@ $accessArray = $_SESSION['accessResponse'];
 						echo "<td><input class='form-control' type='text' name='name' value='$eventValue' readonly> </input></td>";
 						echo '</tr>';
 					}
-
 				}
 				break;
 		}

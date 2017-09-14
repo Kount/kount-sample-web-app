@@ -2,7 +2,7 @@
   "name": "Kount demo web application.",
   "description": "A demo web application demonstrating the usage of Kount's RIS and Access php sdks.",
   "require" : {
-    "kount/kount-ris-php-sdk" : "6.5.3",
+    "kount/kount-ris-php-sdk" : "7.0.0",
     "kount/kount-access-php-sdk" : "2.1.1"
   }
 }
