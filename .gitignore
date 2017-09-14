@@ -5,6 +5,3 @@ composer.lock
 
 # PHPStorm ignorables
 .idea
-
-# Settings file
-config.ini
