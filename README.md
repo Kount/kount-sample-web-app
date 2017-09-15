@@ -56,12 +56,16 @@ Once you have a merchantId and url, you must provide them for the kount access a
   in the root directory of the project. The config.ini is a custom settings file which makes adding configurations  
   easier and avoids the hassle of manually re-adding the merchant id and url, everytime there are updates with the   
   other kount products.
+  
+  
 
-* If you've used composer installation the src folder is located in: 
+* You can still use the src/settings.ini file but you'll have to re-configure it every time there is an update with kount's 
+  ris php sdk and kount access sdk versions.
+  If you've used composer installation the src folder is located in: 
   ```php
   $ cd path-to-web-app/vendor/kount/kount-ris-php-sdk/src/settings.ini
   ```
-* If you've used the direct download option the src folder is located in:
+  If you've used the direct download option the src folder is located in:
   ```php
   $ cd path-to-web-app/Folder-containing-PHP-SDK/src/settings.ini
   ```
