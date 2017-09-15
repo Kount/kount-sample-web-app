@@ -60,7 +60,7 @@ Once you have a merchantId and url, you must provide them for the kount access a
   
 
 * You can still use the src/settings.ini file but you'll have to re-configure it every time there is an update with kount's 
-  ris php sdk and kount access sdk versions.
+  ris php sdk and kount access sdk versions.  
   If you've used composer installation the src folder is located in: 
   ```php
   $ cd path-to-web-app/vendor/kount/kount-ris-php-sdk/src/settings.ini
