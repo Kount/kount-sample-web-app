@@ -52,7 +52,7 @@ You will also need to add a bit of configuration, so that everything runs smooth
 
 Once you have a merchantId and url, you must provide them for the kount access and ris sdks, which the demo uses.
 
-* The quickes way to configure the demo application is to set the merchant id and url in the **config.ini** file 
+* The quickest way to configure the demo application is to set the merchant id and url in the **config.ini** file 
   in the root directory of the project. The config.ini is a custom settings file which makes adding configurations  
   easier and avoids the hassle of manually re-adding the merchant id and url, everytime there are updates with the   
   other kount products.
