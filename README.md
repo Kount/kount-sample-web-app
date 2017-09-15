@@ -7,7 +7,7 @@ This basic web application is a simplified representation of a standard customer
 * customer data verification
 * transaction result
 
-The web application integrates two of the Kount Fraud Detection services -- the Kount Data Collector and the Kount Risk Inquiry Service (RIS). It is written in PHP and uses the Kount RIS PHP SDK.
+The web application integrates a few of the Kount Fraud Detection services -- the Kount Data Collector, Kount Risk Inquiry Service (RIS) and Kount Access PHP API.
 
 #### Kount Data Collector
 
@@ -19,6 +19,10 @@ This tool can make automated decisions for the level of fraud-likeliness of cust
 * purchase details -- items and item descriptions, prices, item quantities, etc.
 * customer details -- customer provided data for name, e-mail address, billing and shipping address, customer age and gender, etc.
 * information collected by the Kount Data Collector
+
+#### Kount Access PHP  
+
+This library allows you to connect to the Kount Access API services and get information back from your login transactions.
 
 #### Using Kount's PHP SDK
 
@@ -46,7 +50,13 @@ There are two ways to integrate this web application with Kount's sdk:
 
 You will also need to add a bit of configuration, so that everything runs smoothly.
 
-Once you have a merchantId and url, you must set them in src/settings.ini, which is in the php sdk.
+Once you have a merchantId and url, you must provide them for the kount access and ris sdks, which the demo uses.
+
+* The quickes way to configure the demo application is to set the merchant id and url in the **config.ini** file 
+  in the root directory of the project. The config.ini is a custom settings file which makes adding configurations  
+  easier and avoids the hassle of manually re-adding the merchant id and url, everytime there are updates with the   
+  other kount products.
+
 * If you've used composer installation the src folder is located in: 
   ```php
   $ cd path-to-web-app/vendor/kount/kount-ris-php-sdk/src/settings.ini
