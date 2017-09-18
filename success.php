@@ -12,7 +12,7 @@ if (!$session) {
   $session = session_id();
 }
 
-require __DIR__ . './vendor/autoload.php';
+require __DIR__ . '/./vendor/autoload.php';
 
 $ini = parse_ini_file('config.ini');
 

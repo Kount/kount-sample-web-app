@@ -36,7 +36,7 @@ There are two ways to integrate this web application with Kount's sdk:
   You will also need to change a line in the response.php file.
   ```php
   //Composer Installation
-  include('./vendor/autoload.php');
+  include('/./vendor/autoload.php');
   
      to
      
