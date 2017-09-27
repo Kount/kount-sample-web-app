@@ -12,35 +12,12 @@ if (!$session) {
   $session = session_id();
 }
 
-require __DIR__ . '/./vendor/autoload.php';
-
-$ini = parse_ini_file('config.ini');
-
-$merchantId = $ini["MERCHANT_ID"];
-
 $accessKeys = array(
         'country', 'region', 'ipAddress', 'decision'
 );
 
-const version = "0210";
-const merchantId = 999666;
-const host = merchantId . ".kountaccess.com";
-const accessUrl = "https://" . host . "/access";
-const apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OTk2NjYiLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNDk5ODcwNDgwLCJzY3AiOnsia2EiOnRydWUsImtjIjp0cnVlLCJhcGkiOnRydWUsInJpcyI6dHJ1ZX19.yFan6moxBonnG8Vk9C_qRpF-eTF00_MRBwgqMdNdy8U";
-const serverUrl = "api-sandbox01.kountaccess.com";
+$response = isset($_SESSION['accessResponse']) ? $_SESSION['accessResponse'] : null;
 
-$username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
-$password = isset($_SESSION['password']) ? $_SESSION['password'] : null;
-
-if ($_SERVER['REQUEST_METHOD'] == "GET") {
-  try {
-    $kount_access = new Kount_Access_Service(merchantId, apiKey, serverUrl, version);
-    $response = $kount_access->get_decision($session, $username, $password);
-    $_SESSION['accessResponse'] = $response;
-  } catch (Kount_Access_Exception $ae) {
-  	throw new Exception($ae->getMessage());
-  }
-}
 ?>
 <style>
   tr {

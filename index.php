@@ -10,18 +10,48 @@ if (!$session) {
   $session = session_id();
 }
 
+require __DIR__ . '/./vendor/autoload.php';
+
 $ini = parse_ini_file('config.ini');
 
-$merchantId = $ini["MERCHANT_ID"];
+$merchantId     = $ini["MERCHANT_ID"];
+$apiKey         = $ini["API_KEY"];
+const version   = "0210";
+const serverUrl = "api-sandbox01.kountaccess.com";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
+	performAccessCall($session, $merchantId, version, $apiKey, serverUrl);
   authenticateUser();
 }
 
-$userHash = isset($_SESSION['username']) ? hash('md2', $_SESSION['username']) : '';
+//TODO implement this
+
+//if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+//	if (!empty($_SESSION['password']) && !empty($_SESSION['username'])) {
+//		header("Location: home.php");
+//	}
+//}
+
+$userHash     = isset($_SESSION['username']) ? hash('md2', $_SESSION['username']) : '';
 $passwordHash = isset($_SESSION['password']) ? hash('md2', $_SESSION['password']) : '';
 
 $goodPasswords = array('2fa', 'kount');
+
+function performAccessCall($session, $merchant, $version, $apiKey, $serverUrl) {
+	if(!empty($_POST['password']) && !empty($_POST['username'])) {
+		$username = isset($_POST['username']) ? $_POST['username'] : null;
+		$password = isset($_POST['password']) ? $_POST['password'] : null;
+
+		try {
+			$kount_access = new Kount_Access_Service($merchant, $apiKey, $serverUrl, $version);
+			$response = $kount_access->get_decision($session, $username, $password);
+			$_SESSION['accessResponse'] = $response;
+
+		} catch (Kount_Access_Exception $ae) {
+			throw new Exception($ae->getMessage());
+		}
+	}
+}
 
 function authenticateUser() {
   $goodPasswords = array('2fa', 'kount');

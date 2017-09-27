@@ -8,10 +8,11 @@ if (!$session) {
 
 include('header.php');
 require __DIR__ . '/./vendor/autoload.php';
+$ini = parse_ini_file('config.ini');
 
-$merchantId = 999666;
-$url = "https://risk.beta.kount.net";
-$apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OTk2NjYiLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNDk0NTM0Nzk5LCJzY3AiOnsia2EiOm51bGwsImtjIjpudWxsLCJhcGkiOmZhbHNlLCJyaXMiOnRydWV9fQ.eMmumYFpIF-d1up_mfxA5_VXBI41NSrNVe9CyhBUGck";
+$merchantId = $ini["MERCHANT_ID"];
+$apiKey     = $ini["API_KEY"];
+$url        = $ini["URL"];
 
 $name = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST['recipient_name'] : '';
 $email = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST['recipient_email'] : '';
