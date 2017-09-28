@@ -18,6 +18,12 @@ $accessKeys = array(
 
 $response = isset($_SESSION['accessResponse']) ? $_SESSION['accessResponse'] : null;
 
+if($_SERVER['REQUEST_METHOD'] === 'GET') {
+	if(!empty($_SESSION['username']) && (!empty($_SESSION['username']) && $_SESSION['password'] == '2fa')) {
+		$_SESSION['authenticated'] = true;
+	}
+}
+
 ?>
 <style>
   tr {

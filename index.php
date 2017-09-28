@@ -24,18 +24,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   authenticateUser();
 }
 
-//TODO implement this
-
-//if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//	if (!empty($_SESSION['password']) && !empty($_SESSION['username'])) {
-//		header("Location: home.php");
-//	}
-//}
-
-$userHash     = isset($_SESSION['username']) ? hash('md2', $_SESSION['username']) : '';
-$passwordHash = isset($_SESSION['password']) ? hash('md2', $_SESSION['password']) : '';
-
+$userHash      = isset($_SESSION['username']) ? hash('md2', $_SESSION['username']) : '';
+$passwordHash  = isset($_SESSION['password']) ? hash('md2', $_SESSION['password']) : '';
 $goodPasswords = array('2fa', 'kount');
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+	if (!empty($_SESSION['password']) && !empty($_SESSION['username'])) {
+		if (isset($_SESSION["authenticated"])) {
+			header("Location: home.php");
+		}
+	}
+}
 
 function performAccessCall($session, $merchant, $version, $apiKey, $serverUrl) {
 	if(!empty($_POST['password']) && !empty($_POST['username'])) {
@@ -59,6 +58,7 @@ function authenticateUser() {
     if($_POST['password'] == 'kount') {
       $_SESSION['username'] = $_POST['username'];
       $_SESSION['password'] = $_POST['password'];
+      $_SESSION['authenticated'] = true;
       header("Location: success.php");
 
     } else if($_POST['password'] == '2fa') {
@@ -179,7 +179,6 @@ include('header.php');
   <script type="text/javascript" src='https://sandbox01.kaxsdc.com/collect/sdk?m=<?=$merchantId?>&s=<?=$session?>'>
   </script>
   <img width="1" height="1" src='https://sandbox01.kaxsdc.com/logo.gif?m=<?=$merchantId?>&s=<?=$session?>'/>
-
 </div>
 <?php
 include('footer.php');

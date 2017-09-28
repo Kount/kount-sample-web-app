@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 
 function logoutUser() {
-  unset($_SESSION['username'], $_SESSION['password'], $_SESSION['responseArray']);
+  unset($_SESSION['username'], $_SESSION['password'], $_SESSION['responseArray'], $_SESSION['authenticated']);
   header("Location: index.php");
   var_dump($_SESSION);
 }
