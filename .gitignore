@@ -1,5 +1,7 @@
+
+# Composer ignorables
 vendor
-.idea
 composer.lock
-logoGif.php
-logoHtm.php
+
+# PHPStorm ignorables
+.idea

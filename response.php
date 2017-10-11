@@ -8,10 +8,11 @@ if (!$session) {
 
 include('header.php');
 require __DIR__ . '/./vendor/autoload.php';
+$ini = parse_ini_file('config.ini');
 
-$merchantId = 999666;
-$url = "https://risk.beta.kount.net";
-$apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OTk2NjYiLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNDk0NTM0Nzk5LCJzY3AiOnsia2EiOm51bGwsImtjIjpudWxsLCJhcGkiOmZhbHNlLCJyaXMiOnRydWV9fQ.eMmumYFpIF-d1up_mfxA5_VXBI41NSrNVe9CyhBUGck";
+$merchantId = $ini["MERCHANT_ID"];
+$apiKey     = $ini["API_KEY"];
+$url        = $ini["URL"];
 
 $name = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST['recipient_name'] : '';
 $email = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST['recipient_email'] : '';
@@ -65,7 +66,8 @@ const TOTL = 123456;
 const CASH = 4444;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET') {
-  $request = new Kount_Ris_Request_Inquiry();
+  $customPath = 'config.ini';
+  $request = new Kount_Ris_Request_Inquiry(Kount_Util_Khash::createKhash($customPath));
   $request->setName($name);
   $request->setEmail($email);
   $request->setSessionId($session);
@@ -184,7 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
   var btn2 = document.getElementById('shopAgain');
   btn2.addEventListener('click', function (e) {
     e.preventDefault();
-    document.location.href = 'index.php';
+    document.location.href = 'home.php';
   });
   var link = document.getElementById('popUpAnchor');
     link.addEventListener('click', function (e) {
