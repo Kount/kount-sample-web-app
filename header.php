@@ -10,7 +10,7 @@ if (!$session) {
 
 <html>
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8" http-equiv="Content-Type"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Checkout with Kount Demo</title>
         <!--Including Bootstrap style files-->

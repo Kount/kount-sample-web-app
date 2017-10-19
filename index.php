@@ -12,6 +12,8 @@ if (!$session) {
 
 require __DIR__ . '/./vendor/autoload.php';
 
+include('header.php');
+
 $ini = parse_ini_file('config.ini');
 
 $merchantId     = $ini["MERCHANT_ID"];
@@ -73,7 +75,6 @@ function authenticateUser() {
   }
 }
 
-include('header.php');
 ?>
 <style>
   tr {
